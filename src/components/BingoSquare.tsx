@@ -8,27 +8,31 @@ interface BingoSquareProps {
 
 export function BingoSquare({ square, isWinning, onClick }: BingoSquareProps) {
   const baseClasses =
-    'relative flex items-center justify-center p-1 text-center border border-gray-300 rounded transition-all duration-150 select-none min-h-[60px] text-xs leading-tight';
+    'relative flex min-h-[62px] items-center justify-center rounded-xl border p-1 text-center text-xs leading-tight shadow-[0_3px_8px_rgb(126_81_49_/_0.12)] transition duration-150 select-none sm:min-h-[66px]';
 
   const stateClasses = square.isMarked
     ? isWinning
-      ? 'bg-amber-200 border-amber-400 text-amber-900'
-      : 'bg-marked border-marked-border text-green-800'
-    : 'bg-white text-gray-700 active:bg-gray-100';
+      ? 'border-[rgb(185_124_45)] bg-[linear-gradient(145deg,#f6dcab_0%,#efc479_100%)] text-[rgb(93_56_28)]'
+      : 'border-[rgb(191_131_92)] bg-[linear-gradient(150deg,#f9e6d2_0%,#f0d2b6_100%)] text-[rgb(108_62_39)]'
+    : 'border-[rgb(190_145_111_/_0.55)] bg-[linear-gradient(180deg,#fffdf8_0%,#fff3e6_100%)] text-[rgb(114_71_47)] active:brightness-[0.97]';
 
-  const freeSpaceClasses = square.isFreeSpace ? 'font-bold text-sm' : '';
+  const freeSpaceClasses = square.isFreeSpace
+    ? 'font-script text-base font-bold tracking-[0.01em] text-[rgb(125_73_45)] shadow-[inset_0_2px_5px_rgb(170_114_82_/_0.24)]'
+    : 'font-ui font-bold';
 
   return (
     <button
       onClick={onClick}
       disabled={square.isFreeSpace}
-      className={`${baseClasses} ${stateClasses} ${freeSpaceClasses}`}
+      className={`${baseClasses} ${stateClasses} ${freeSpaceClasses} ${
+        square.isFreeSpace ? 'cursor-default' : 'hover:-translate-y-0.5 active:translate-y-0'
+      }`}
       aria-pressed={square.isMarked}
       aria-label={square.isFreeSpace ? 'Free space' : square.text}
     >
-      <span className="wrap-break-word hyphens-auto">{square.text}</span>
+      <span className="break-words hyphens-auto px-0.5">{square.text}</span>
       {square.isMarked && !square.isFreeSpace && (
-        <span className="absolute top-0.5 right-0.5 text-green-600 text-xs">✓</span>
+        <span className="absolute right-1 top-1 text-[0.72rem] text-[rgb(124_74_44)]">✓</span>
       )}
     </button>
   );

@@ -1,11 +1,19 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-accent: #2563eb;
-  --color-accent-light: #3b82f6;
-  --color-marked: #dcfce7;
-  --color-marked-border: #22c55e;
-  --color-bingo: #fbbf24;
+  --color-accent: #8a4b2c;
+  --color-accent-light: #a66443;
+  --color-marked: #f5ddc5;
+  --color-marked-border: #cd8c5f;
+  --color-bingo: #e4aa45;
+  --color-cafe-cream: #fdf4e8;
+  --color-cafe-foam: #fff9f2;
+  --color-cafe-cocoa: #5b3324;
+  --color-cafe-chalk: #fff6ea;
+  --color-cafe-pastry: #ffb875;
+  --font-display: 'Fraunces', 'Times New Roman', serif;
+  --font-ui: 'Nunito', 'Trebuchet MS', sans-serif;
+  --font-script: 'Caveat', 'Bradley Hand', cursive;
 }
 
 html,
@@ -16,6 +24,48 @@ body,
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-ui);
+  color: var(--color-cafe-cocoa);
+  background:
+    radial-gradient(circle at 12% 14%, rgb(255 238 214 / 85%), transparent 42%),
+    radial-gradient(circle at 88% 16%, rgb(255 196 126 / 30%), transparent 36%),
+    radial-gradient(circle at 22% 88%, rgb(201 144 100 / 20%), transparent 34%),
+    linear-gradient(170deg, var(--color-cafe-foam) 0%, #fff6ea 47%, #f8e2cb 100%);
   -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  isolation: isolate;
+}
+
+.cafe-grain {
+  background-image:
+    radial-gradient(rgb(255 255 255 / 30%) 0.8px, transparent 0.8px),
+    radial-gradient(rgb(146 98 64 / 14%) 0.7px, transparent 0.7px);
+  background-position: 0 0, 16px 10px;
+  background-size: 20px 20px, 22px 22px;
+}
+
+@keyframes steam-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rise-soft {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
