@@ -1,5 +1,5 @@
-import type { BingoSquareData } from '../types';
-import { BingoBoard } from './BingoBoard';
+import type { BingoSquareData } from "../types";
+import { BingoBoard } from "./BingoBoard";
 
 interface GameScreenProps {
   board: BingoSquareData[];
@@ -9,13 +9,7 @@ interface GameScreenProps {
   onReset: () => void;
 }
 
-export function GameScreen({
-  board,
-  winningSquareIds,
-  hasBingo,
-  onSquareClick,
-  onReset,
-}: GameScreenProps) {
+export function GameScreen({ board, winningSquareIds, hasBingo, onSquareClick, onReset }: GameScreenProps) {
   return (
     <div className="relative flex min-h-full flex-col overflow-hidden px-3 py-3 sm:px-5 sm:py-4">
       <div className="pointer-events-none absolute inset-0 cafe-grain opacity-45" />

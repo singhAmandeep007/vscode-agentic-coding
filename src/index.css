@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-accent: #8a4b2c;
@@ -11,9 +11,9 @@
   --color-cafe-cocoa: #5b3324;
   --color-cafe-chalk: #fff6ea;
   --color-cafe-pastry: #ffb875;
-  --font-display: 'Fraunces', 'Times New Roman', serif;
-  --font-ui: 'Nunito', 'Trebuchet MS', sans-serif;
-  --font-script: 'Caveat', 'Bradley Hand', cursive;
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-ui: "Nunito", "Trebuchet MS", sans-serif;
+  --font-script: "Caveat", "Bradley Hand", cursive;
 }
 
 html,
@@ -42,8 +42,12 @@ body {
   background-image:
     radial-gradient(rgb(255 255 255 / 30%) 0.8px, transparent 0.8px),
     radial-gradient(rgb(146 98 64 / 14%) 0.7px, transparent 0.7px);
-  background-position: 0 0, 16px 10px;
-  background-size: 20px 20px, 22px 22px;
+  background-position:
+    0 0,
+    16px 10px;
+  background-size:
+    20px 20px,
+    22px 22px;
 }
 
 @keyframes steam-in {

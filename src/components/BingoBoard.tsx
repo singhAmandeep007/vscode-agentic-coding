@@ -1,5 +1,5 @@
-import type { BingoSquareData } from '../types';
-import { BingoSquare } from './BingoSquare';
+import type { BingoSquareData } from "../types";
+import { BingoSquare } from "./BingoSquare";
 
 interface BingoBoardProps {
   board: BingoSquareData[];
