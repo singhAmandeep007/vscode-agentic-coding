@@ -1,8 +1,8 @@
-import { questions, FREE_SPACE } from '../data/questions';
-import type { BingoSquareData, BingoLine } from '../types';
+import { questions, FREE_SPACE } from "../data/questions";
+import type { BingoSquareData, BingoLine } from "../types";
 
 // Re-export types for convenience
-export type { BingoSquareData, BingoLine } from '../types';
+export type { BingoSquareData, BingoLine } from "../types";
 
 const BOARD_SIZE = 5;
 const CENTER_INDEX = 12; // 5x5 grid, center is index 12 (row 2, col 2)
@@ -54,9 +54,7 @@ export function generateBoard(): BingoSquareData[] {
  */
 export function toggleSquare(board: BingoSquareData[], squareId: number): BingoSquareData[] {
   return board.map((square) =>
-    square.id === squareId && !square.isFreeSpace
-      ? { ...square, isMarked: !square.isMarked }
-      : square
+    square.id === squareId && !square.isFreeSpace ? { ...square, isMarked: !square.isMarked } : square,
   );
 }
 
@@ -72,7 +70,7 @@ function getWinningLines(): BingoLine[] {
     for (let col = 0; col < BOARD_SIZE; col++) {
       squares.push(row * BOARD_SIZE + col);
     }
-    lines.push({ type: 'row', index: row, squares });
+    lines.push({ type: "row", index: row, squares });
   }
 
   // Columns
@@ -81,21 +79,28 @@ function getWinningLines(): BingoLine[] {
     for (let row = 0; row < BOARD_SIZE; row++) {
       squares.push(row * BOARD_SIZE + col);
     }
-    lines.push({ type: 'column', index: col, squares });
+    lines.push({ type: "column", index: col, squares });
   }
 
   // Diagonal (top-left to bottom-right)
   lines.push({
-    type: 'diagonal',
+    type: "diagonal",
     index: 0,
     squares: [0, 6, 12, 18, 24],
   });
 
   // Diagonal (top-right to bottom-left)
   lines.push({
-    type: 'diagonal',
+    type: "diagonal",
     index: 1,
     squares: [4, 8, 12, 16, 20],
+  });
+
+  // Four corners
+  lines.push({
+    type: "corners",
+    index: 0,
+    squares: [0, 4, 20, 24],
   });
 
   return lines;
